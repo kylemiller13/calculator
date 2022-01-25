@@ -1,33 +1,51 @@
+// Business logic:
+
 function add(number1, number2) {
   return number1 + number2;
-}
+};
 
-const number1 = parseInt(prompt("Enter a number:"));
-const number2 = parseInt(prompt("Enter another number:"));
-const result = add(number1, number2);
-alert(result);
+function subtract(number1, number2) {
+  return number1 - number2;
+};
 
-function subtract(number3, number4) {
-  return number3 - number4;
-}
-const number3 = parseInt(prompt("Enter a number:"));
-const number4 = parseInt(prompt("Enter another number:"));
-const final = subtract(number3, number4);
-alert(final);
+function multiply(number1, number2) {
+  return number1 * number2;
+};
 
-function multiply(number5, number6) {
-  return number5 * number6;
-}
-const number5 = parseInt(prompt("Enter a number:"));
-const number6 = parseInt(prompt("Enter another number:"));
-const end = multiply(number5, number6);
-alert(end);
+function divide(number1, number2) {
+  return number1 / number2;
+};
 
-function divide(number7, number8) {
-  return number7 / number8;
-}
-const number7 = parseInt(prompt("Enter a number:"));
-const number8 = parseInt(prompt("Enter another number:"));
-const input = divide(number7, number8);
-alert(input);
+// user interface logic:
+// addition
 
+$(document).ready(function () {
+  $("form#add").submit(function (event) {
+    event.preventDefault();
+    const number1 = parseInt($("#add1").val());
+    const number2 = parseInt($("#add2").val());
+    const result = add(number1, number2);
+    $("#outputA").text(result);
+  });
+  $("form#subtract").submit(function (event) {
+    event.preventDefault();
+    const number3 = parseInt($("#subtract1").val());
+    const number4 = parseInt($("#subtract2").val());
+    const result = subtract(number3, number4);
+    $("#outputS").text(result);
+  });
+  $("form#multiply").submit(function (event) {
+    event.preventDefault();
+    const number1 = parseInt($("#multiply1").val());
+    const number2 = parseInt($("#multiply2").val());
+    const result = multiply(number1, number2);
+    $("#outputM").text(result);
+  });
+  $("form#divide").submit(function (event) {
+    event.preventDefault();
+    const number1 = parseInt($("#divide1").val());
+    const number2 = parseInt($("#divide2").val());
+    const result = divide(number1, number2);
+    $("#outputD").text(result);
+  });
+});
